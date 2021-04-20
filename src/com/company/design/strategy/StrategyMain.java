@@ -35,6 +35,6 @@ public class StrategyMain {
         sorterUtilsCat.sort(cats,new CatCompare());
         SorterUtils<Dog> sorterUtilsDog = new SorterUtils<>();
         sorterUtilsDog.sort(dogs,new DogCompare());
-        System.out.println(Arrays.toString(dogs));
+        System.out.println(Arrays.toString(cats));
     }
 }
