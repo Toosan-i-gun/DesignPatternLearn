@@ -10,7 +10,8 @@ package com.company.design.singleton;
  */
 public class SingletonModeV6 {
 
-    private static SingletonModeV6 INSTANCE;
+    // 这里加上volatile 是为了防止JIT语句重排时，可能发生INSTANCE未初始化就进行返回了。
+    private static volatile SingletonModeV6 INSTANCE;
 
     private SingletonModeV6() {
     }
