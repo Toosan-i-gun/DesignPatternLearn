@@ -15,6 +15,7 @@ public class SingletonModeMain {
 //        for (int i = 0; i < 100; i++) {
 //            new Thread(() -> System.out.println("111"+ SingletonModeV8.INSTANCE.hashCode())).start();
 //        }
-        SingletonModeV8.INSTANCE.printLog();
+//        SingletonModeV8.INSTANCE.printLog();
+        SingletonModeV7.getInstance().printLog();
     }
 }
