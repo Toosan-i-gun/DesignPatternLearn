@@ -1,0 +1,42 @@
+TODO 进程与线程
+进程：操作系统管理的最小单元  一个应用最少包含一个进程
+线程：CPU调度的最小单元  一个进程至少包含一个线程
+进程 > 线程
+
+TODO 并发与并行
+并行：多少个跑道
+并发：单位时间，跑道上跑过的车
+
+TODO 线程启动的方式
+继承Thread，重写run方法
+Thread.start()
+实现Runnable接口，执行该任务
+Thread(Runnable).start()
+带返回值的任务 Callable + FutureTask<T> 配合使用
+
+TODO 如何停止一个线程
+Thread.interrupt()  打断线程
+Thread.currentThread().isInterrupted(); 获取线程状态
+配合线程状态，在run里面做出相应的逻辑处理
+
+TODO run() 与 start() 区别
+run()是线程被调度时执行的任务逻辑，直接调用就是普通的函数调用，与线程调用没关系
+start()是执行线程的启动方法，会调用的底层逻辑，通过cpu调度执行到线程的run()
+
+TODO 线程的顺序执行
+Thread.join() 控制当前线程执行完后，之后的线程才能继续执行
+
+TODO 守护线程
+ThreadA.setDaemon(true)
+非守护线程：当前线程下面开启的子线程，当前线程一定要等待子线程执行完毕后，才能结束
+守护线程：当前线程下面开启的子线程，当前线程继续执行自己的事情，当前线程结束后，
+对应的子线程不管执没执行完，都会和当前线程一起结束
+
+TODO sleep 和 wait 的区别
+sleep是休眠，休眠过后又会进入到就绪状态，等待CPU执行
+wait是等待，需要被唤醒，唤醒之后才会进入到就绪状态
+
+Thread.yield() 让出当前线程执行权，运行状态 -> 就绪状态
+Thread.sleep()时，执行Thread.interrupt()会抛出打断异常，抛出异常前会清除interrupt标记
+也就是说，sleep时，设置interrupt不会生效，需要在异常的catch里面再重新设置一下状态才行
+
